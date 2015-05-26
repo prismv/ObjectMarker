@@ -82,57 +82,58 @@ bool ObjectMarker::loadConfiguration(const std::string& config_name,
 
 
 void ObjectMarker::printHelp() {
-	printf("\nObject Marker: \n\t 画像中のオブジェクト位置を記録するためのツール\n");
+	printf("\nObject Marker: \n\t [...]\n");
 	printf("\tGunawan Herman, April 2006\n");
 	printf("\tAdapted from ObjectMarker.cpp by A.Florian\n");
 	printf("\tModified and localized by Takuya MINAGAWA in 2014\n");
+	printf("\tLocalization reversed by RA in 2015\n");
 	printf("\n");
-	printf("------------------------------------------------------------\n");
-	printf("|  btn  |               function                           |\n");
-	printf("|-------|--------------------------------------------------|\n");
-	printf("|Enter  | 現在のマーカーをファイルに記述し、               |\n");
-	printf("|       | 次の画像を読み込む                               |\n");
-	printf("|Space  | Enterと同じ                                      |\n");
-	printf("|BS     | ひとつ前の画像に戻る                             |\n");
-	printf("|ESC    | プログラムを終了                                 |\n");
-	printf("|d      | 一番新しいマーカーを消去                         |\n");
-	printf("|r      | 前フレームのマーカーを１つ呼び出す               |\n");
-	printf("|8      | 一番新しいマーカーを1 px上へ動かす               |\n");
-	printf("|9      | 一番新しいマーカーを10px上へ動かす               |\n");
-	printf("|2      | 一番新しいマーカーを1 px下へ動かす               |\n");
-	printf("|3      | 一番新しいマーカーを10px下へ動かす               |\n");
-	printf("|4      | 一番新しいマーカーを1 px左へ動かす               |\n");
-	printf("|5      | 一番新しいマーカーを10px左へ動かす               |\n");
-	printf("|6      | 一番新しいマーカーを1 px右へ動かす               |\n");
-	printf("|7      | 一番新しいマーカーを10px右へ動かす               |\n");
-	printf("|w      | 一番新しいマーカーの幅を1 px拡大する             |\n");
-	printf("|W      | 一番新しいマーカーの幅を1 px縮小する             |\n");
-	printf("|h      | 一番新しいマーカーの高さを1 px拡大する           |\n");
-	printf("|H      | 一番新しいマーカーの高さを1 px縮小する           |\n");
-	printf("|z      | 一番新しいマーカーのを大きさを2%%拡大する         |\n");
-	printf("|Z      | 一番新しいマーカーのを大きさを2%%縮小する         |\n");
-	printf("|m      | マーカーの縦横比を固定／固定解除する             |\n");
-	printf("|a      | マーカーの縦横比を指定する                       |\n");
-	printf("|s      | 画像の表示サイズを変更する                       |\n");
-	printf("|c      | マーカー領域の画像を切り取ってファイル保存       |\n");
-	printf("|p      | マーカーを矩形だけでなく点を許可する             |\n");
-	printf("|e      | 現フレームにつけたマーカー座標を画面出力         |\n");
-	printf("|g      | ガイドの表示/非表示                              |\n");
-	printf("|G      | ガイドの設定                                     |\n");
-	printf("|f      | 画像のフォルダ名を変更                           |\n");
-	printf("|o      | 出力ファイルを変更                               |\n");
-	printf("|O      | 出力ファイルを成形して新たに作成                 |\n");
-	printf("|j      | 指定番号の画像へジャンプ                         |\n");
-	printf("|t      | このヘルプを表示                                 |\n");
-	printf("------------------------------------------------------------\n");
-	printf("オブジェクトを右クリックで選択\n");
+	printf("--------------------------------------------------------------\n");
+	printf("|  Key  |               Function                             |\n");
+	printf("|-------|----------------------------------------------------|\n");
+	printf("|Enter  | Record objects marked on current 'raw' image       |\n");
+	printf("| (or)  | to 'annotation.txt' and proceed                    |\n");
+	printf("|Space  | to the next 'raw' image.                           |\n");
+	printf("|BS     | Go back to previous image.                         |\n");
+	printf("|ESC    | Quit the program (discards unsaved changes).       |\n");
+	printf("|d      | Delete the most recently marked object.            |\n");
+	printf("|r      | Copy former markers.                               |\n");
+	printf("|8      | Move last added marker box up by 1 pixel.          |\n");
+	printf("|9      | (same as above, but by 10 pixels)                  |\n");
+	printf("|2      | Move last added marker box down by 1 pixel.        |\n");
+	printf("|3      | (same as above, but by 10 pixels)                  |\n");
+	printf("|4      | Move last added marker box left by 1 pixel.        |\n");
+	printf("|5      | (same as above, but by 10 pixels)                  |\n");
+	printf("|6      | Move last added marker box right by 1 pixel.       |\n");
+	printf("|7      | (same as above, but by 10 pixels)                  |\n");
+	printf("|w      | Increase width of last added marker box by 1 px.   |\n");
+	printf("|W      | Decrease width of last added marker box by 1 px.   |\n");
+	printf("|h      | Increase height of last added marker box by 1 px.  |\n");
+	printf("|H      | Decrease height of last added marker box by 1 px.  |\n");
+	printf("|z      | Increase size of last added marker box by 2%%.      |\n");
+	printf("|Z      | Decrease size of last added marker box by 2%%.      |\n");
+	printf("|m      | Switch between free-sized and fixed-scale mode.    |\n");
+	printf("|a      | Input aspect ratio.                                |\n");
+	printf("|s      | Input display scale.                               |\n");
+	printf("|c      | Crop images with annotated rectangles.             |\n");
+	printf("|p      | Enable marking objects by points instead of boxes. |\n");
+	printf("|e      | Echo marker parameters.                            |\n");
+	printf("|g      | Echo 'Guide' shape.                                |\n");
+	printf("|G      | Set 'Guide' shape.                                 |\n");
+	printf("|f      | Change work folder and restart.                    |\n");
+	printf("|o      | Set new output file name.                          |\n");
+	printf("|O      | Export to new output file.                         |\n");
+	printf("|j      | Jump to 'raw' image with the specified index.      |\n");
+	printf("|t      | Print usage instruction.                           |\n");
+	printf("--------------------------------------------------------------\n");
+	printf("\n");
 	printf("\n");
 }
 
 void ObjectMarker::printStatus() const
 {
-	std::cout << "このプログラムは入力画像を'" << _input_dir << "'フォルダの中から探します\n";
-	std::cout << "オブジェクトの位置はファイル'" << _annotation_file << "'にテキスト出力されます\n";
+	std::cout << "Input directory is set to: " << _input_dir << "\n";
+	std::cout << "Annotation file is set to: " << _annotation_file << "\n";
 	_marker_viewer.PrintStatus();
 }
 

@@ -213,12 +213,12 @@ std::vector<cv::Rect> MarkerViewer::removeOutRangeRect(const std::vector<cv::Rec
 
 //! ステータスの表示
 void MarkerViewer::PrintStatus() const{
-	std::cout << "マーカーの縦横比は" << (_FIX_MARKER_AR ? "固定" : "自由") << std::endl;
+	std::cout << "Fixed marker aspect: " << (_FIX_MARKER_AR ? "YES" : "NO") << std::endl;
 	if (_FIX_MARKER_AR) {
-		std::cout << "アスペクト比 (width / height): " << _aspect_ratio << std::endl;
+		std::cout << "aspect ratio (width / height): " << _aspect_ratio << std::endl;
 	}
-	std::cout << "点マーカーを許可： " << (_ACCEPT_POINT ? "YES" : "NO") << std::endl;
-	std::cout << "表示縮尺： " << _display_scale << std::endl;
+	std::cout << "Accept point: " << (_ACCEPT_POINT ? "YES" : "NO") << std::endl;
+	std::cout << "Display scale: " << _display_scale << std::endl;
 }
 
 
@@ -306,6 +306,7 @@ void MarkerViewer::MouseButtonUp()
 	int topleft_y = std::min(_roi_b.y, _roi_e.y);
 	double width = std::abs(_roi_b.x - _roi_e.x);
 	double height = std::abs(_roi_b.y - _roi_e.y);
+	std::cout << "Set marker has width " << width << " and height " << height << ".\n" << std::endl;
 
 	if ((width == 0 || height == 0) && !_ACCEPT_POINT) return;
 
